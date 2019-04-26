@@ -8,6 +8,62 @@ mkdir components 를 통해서 컴포넌트를 하나 만듭니다.
 
 그리고 components/navigation.js 를 만들겠습니다. 
 
+### 네이게이션 컴포넌트 코드 작성하기. 
+
+단순하게 이전에 만들었던 코드를 navigation.js 파일에 추가하고 컴포넌트 이름만 다르게 지정해주면 됩니다. 
+
+```
+import Link from 'next/link';
+
+const Navigation = () => (
+    <ul>
+        <li><Link href="/"><a>Home</a></Link></li>
+        <li><Link href="/about"><a>About</a></Link></li>
+    </ul>
+)
+
+export default Navigation;
+```
+
+이전 코드와 동일합니다. 그러나 이렇게 지정함으로 해서 우리는 앞으로 index.js 와 about.js 파일에 <Navigation/> 이라는 태그를 추가할 것입니다. 
+
+### index.js 코드 수정하기. 
+
+Navigation 만들었으므로 우리는 이제 Navigation 을 불러와서 이용하면 됩니다. <Navigation/> 을 통해서 말이죠. 
+
+```
+import Navigation from '../components/navigation';
+
+export default() => (
+    <div>
+        <Navigation/>
+        <h1>Hello React Next</h1>
+    </div>
+
+)
+```
+
+### about.js 코드 수정하기. 
+
+```
+import Navigation from '../components/navigation';
+
+const About = () => (
+    <div>
+        <Navigation/>
+        <h1>About me</h1>
+        <h2>Name: Kido</h2>
+        <h2>Job: Developer</h2>
+    </div>
+)
+
+export default About;
+```
+
+next 에서는 이전 React 에 비해 매우 직관적이고, 편한 방법으로 컴포넌트를 이용할 수 있음을 확인할 수 있습니다. 
+
+http://localhost:3000 으로 페이지를 네비게이션 해보시기 바랍니다. 
+
 ----
 
 ## Chapter 02. Page Routing
