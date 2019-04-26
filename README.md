@@ -1,6 +1,6 @@
 # Unclebae React - Next Tutorials
 
-## Install & Setup
+## Chapter 01. Install & Setup
 
 ### install
 
