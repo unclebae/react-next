@@ -20,7 +20,7 @@ const Navigation = () => (
             <li><Link href="/about"><a>About</a></Link></li>
         </ul>
 
-        <style jsx>{`
+        <style jsx>{\`
             div.navbar {
                 background-color: #f7cba3;
                 margin: 10 0;
@@ -46,7 +46,7 @@ const Navigation = () => (
             ul li a:hover {
                 background-color:#f2c43a;
             }
-        `
+        \`
         }</style>
     </div>
 )
