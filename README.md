@@ -20,7 +20,7 @@ const Navigation = () => (
             <li><Link href="/about"><a>About</a></Link></li>
         </ul>
 
-        <style jsx>{\`
+        <style jsx>{'  // 이부분은 따옴표가 아니라. 멀티라인 표시를 위한 역 따옴표임
             div.navbar {
                 background-color: #f7cba3;
                 margin: 10 0;
@@ -46,7 +46,7 @@ const Navigation = () => (
             ul li a:hover {
                 background-color:#f2c43a;
             }
-        \`
+        '  // 이부분은 따옴표가 아니라. 멀티라인 표시를 위한 역 따옴표임
         }</style>
     </div>
 )
