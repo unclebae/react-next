@@ -1,4 +1,4 @@
-# Unclebae React - Next Tutorials
+# Unclebae React - Next
 
 ## Chapter 04. add Style sheet with JSX
 
