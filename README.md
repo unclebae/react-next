@@ -1,5 +1,63 @@
 # Unclebae React - Next Tutorials
 
+## Chapter 04. add Style sheet with JSX
+
+next 에서는 JSX 로 스타일 시트도 함께 컴파일 되도록 지원을 해주고 있습니다. 
+
+pages/navigations.js 파일을 열어 다음과 같이 추가해 줍니다. 
+
+div 태그에 className="navbar" 라고 지정해 준 부분과 
+
+<style jsx> 로 된 부분을 주의깊게 살펴보세요. 
+
+```
+import Link from 'next/link';
+
+const Navigation = () => (
+    <div className="navbar">
+        <ul>
+            <li><Link href="/"><a>Home</a></Link></li>
+            <li><Link href="/about"><a>About</a></Link></li>
+        </ul>
+
+        <style jsx>{`
+            div.navbar {
+                background-color: #f7cba3;
+                margin: 10 0;
+                padding: 1px;
+            }
+
+            ul {
+                list-style: none;
+                display: flex;
+            }
+
+            ul li {
+                font-size: 20px;
+                margin-right: 20px;
+            }
+
+            ul li a {
+                text-decoration: none;
+                padding: 10px;
+                border-radius: 5px;
+            }
+
+            ul li a:hover {
+                background-color:#f2c43a;
+            }
+        `
+        }</style>
+    </div>
+)
+
+export default Navigation;
+```
+
+
+----
+
+
 ## Chapter 03. Add Component for DRY
 
 이번에는 반복되는 링크 페이지를 하나의 컴포넌트로 만들어서 추가해보도록 하겠습니다. 
