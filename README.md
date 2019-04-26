@@ -1,5 +1,33 @@
 # Unclebae React - Next Tutorials
 
+## Chapter 02. Page Routing
+
+이번에는 여러개의 파일을 만들고, 라우팅을 해보는 예제를 살펴 보겠습니다. 
+
+### About 페이지 만들기. 
+
+pages/about.js 파일을 만들어 줍니다. 그리고 아래와 같이 코드를 넣어줍니다 .
+
+```
+const About = () => (
+    <div>
+        <h1>About me</h1>
+        <h2>Name: Kido</h2>
+        <h2>Job: Developer</h2>
+    </div>
+)
+
+export default About;
+```
+
+#### 내용 확인하기. 
+
+http://localhost:3000/about 
+
+위와 같이 해주면 about 페이지가 열립니다. 
+
+보시는 바와 같이 pages 가 기본 디렉토리 입니다. 
+
 ## Chapter 01. Install & Setup
 
 ### install
