@@ -8,7 +8,7 @@ pages/navigations.js 파일을 열어 다음과 같이 추가해 줍니다.
 
 div 태그에 className="navbar" 라고 지정해 준 부분과 
 
-<style jsx> 로 된 부분을 주의깊게 살펴보세요. 
+```style jsx>``` 로 된 부분을 주의깊게 살펴보세요. 
 
 ```
 import Link from 'next/link';
@@ -20,7 +20,7 @@ const Navigation = () => (
             <li><Link href="/about"><a>About</a></Link></li>
         </ul>
 
-        <style jsx>{`
+        <style jsx>{'  // 이부분은 따옴표가 아니라. 멀티라인 표시를 위한 역 따옴표임
             div.navbar {
                 background-color: #f7cba3;
                 margin: 10 0;
@@ -46,14 +46,13 @@ const Navigation = () => (
             ul li a:hover {
                 background-color:#f2c43a;
             }
-        `
+        '  // 이부분은 따옴표가 아니라. 멀티라인 표시를 위한 역 따옴표임
         }</style>
     </div>
 )
 
 export default Navigation;
 ```
-
 
 ----
 
