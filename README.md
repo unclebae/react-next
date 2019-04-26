@@ -8,7 +8,7 @@ pages/navigations.js 파일을 열어 다음과 같이 추가해 줍니다.
 
 div 태그에 className="navbar" 라고 지정해 준 부분과 
 
-<style jsx> 로 된 부분을 주의깊게 살펴보세요. 
+```style jsx>``` 로 된 부분을 주의깊게 살펴보세요. 
 
 ```
 import Link from 'next/link';
