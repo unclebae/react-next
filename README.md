@@ -1,5 +1,15 @@
 # Unclebae React - Next Tutorials
 
+## Chapter 03. Add Component for DRY
+
+이번에는 반복되는 링크 페이지를 하나의 컴포넌트로 만들어서 추가해보도록 하겠습니다. 
+
+mkdir components 를 통해서 컴포넌트를 하나 만듭니다. 
+
+그리고 components/navigation.js 를 만들겠습니다. 
+
+----
+
 ## Chapter 02. Page Routing
 
 이번에는 여러개의 파일을 만들고, 라우팅을 해보는 예제를 살펴 보겠습니다. 
