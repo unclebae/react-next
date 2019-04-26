@@ -28,6 +28,64 @@ http://localhost:3000/about
 
 보시는 바와 같이 pages 가 기본 디렉토리 입니다. 
 
+### Link 로 페이지 이동하기. 
+
+Link 를 연결하고 이제는 페이지 이동하기를 해보겠습니다. 
+
+pages/index.js 파일을 열고 다음과 같이 바꿔주세요. 
+
+```
+import Link from 'next/link';
+
+export default() => (
+    <div>
+        <h1>Hello React Next</h1>
+
+        <ul>
+            <li><Link href="/"><a>Home</a></Link></li>
+            <li><Link href="/about"><a>About</a></Link></li>
+        </ul>
+    </div>
+
+)
+```
+
+보시는 바와 같이 우리는 Link 모듈을 추가했습니다. 
+
+그리고 사용은 단순히 <Link href="/about"> 와 같이 페이지 이름을 지정해 주었습니다. 
+
+```
+import Link from 'next/link';
+...
+<Link href="/about"><a>About</a></Link>
+```
+
+그리고 pages/about.js 파일도 다음과 같이 변경해주면 됩니다. (동일하죠?)
+
+```
+import Link from 'next/link';
+
+const About = () => (
+    <div>
+        <h1>About me</h1>
+        <h2>Name: Kido</h2>
+        <h2>Job: Developer</h2>
+
+        <ul>
+            <li><Link href="/"><a>Home</a></Link></li>
+            <li><Link href="/about"><a>About</a></Link></li>
+        </ul>
+    </div>
+)
+
+export default About;
+```
+
+방법은 똑같습니다. 다시 실행 결과를 http://localhost:3000 으로 확인해보세요. 
+
+매우 쉽게 페이지 라우팅을 구현했습니다. 
+
+
 ## Chapter 01. Install & Setup
 
 ### install
