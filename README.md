@@ -173,6 +173,37 @@ export default() => (
 
 결과를 살펴보면 사용자 목록을 리스트로 나열된 것을 확인할 수 있을 것이다. 
 
+### 리스트 키 트러블 슈팅 
+
+우리는 리스트 항목을 출력할때 다음과 같은 오류를 만다게 된다. 
+
+```
+index.js:1 Warning: Each child in a list should have a unique "key" prop.
+
+Check the render method of `UserList`. See https://fb.me/react-warning-keys for more information.
+    in li (at userList.js:23)
+    in UserList (at pages/index.js:8)
+    in div (at pages/index.js:5)
+    in Unknown (created by App)
+    in Container (created by App)
+    in App
+    in Suspense
+```
+
+이 오류는 리스트를 출력할때 반복 수행으로 해당 키를 부여해 주어야한다. 
+
+personList.js 에서 각 리스트 출력 항목에 키를 다음과 같이 추가해주자. 
+
+```
+...
+{this.state.users.map(user => <li key={user.id}>{user.name}</li>)}
+...
+```
+
+이제 오류가 없을 것이다. 
+
+
+
 --------------
 
 
