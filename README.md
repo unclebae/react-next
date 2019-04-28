@@ -1,5 +1,15 @@
 # Unclebae React - Next
 
+## Chapter 06. using axios post and delete
+
+이번에는 axios POST 와 DELETE 를 수행해볼 차례이다. 
+
+### 서버 API 추가하기. 
+
+
+
+--------------
+
 ## Chapter 05. using axios
 
 axios 는 HTTP Request 를 처리하는 라이브러리이다. Axios 는 기본적으로 Promise 기반의 API 를 제공한다. 
