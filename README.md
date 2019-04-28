@@ -1,5 +1,181 @@
 # Unclebae React - Next
 
+## Chapter 05. using axios
+
+axios 는 HTTP Request 를 처리하는 라이브러리이다. Axios 는 기본적으로 Promise 기반의 API 를 제공한다. 
+
+설치를 하기 위해서 다음과 같이 axios 패키지 라이브러리를 설치한다. 
+
+```
+npm install axios --save
+```
+
+사용자 정보를 받아와서 화면에 출력하는 예제를 알아볼 것이다. 
+
+### 사용자 목록을 내려주는 서버 만들기. 
+
+우선 우리에게 필요한 것은 서버를 먼저 만들어 주는 것이다.
+
+우리는 여기서 express, body-parser, cors 를 설치하고 간단한 사용자 정보를 처리하는 서버를 만들것이다. 
+
+```
+mkdir node_server
+cd node_server
+npm init -y
+```
+
+기본적으로 node_server 를 초기화 한다. 
+
+```
+npm install express body-parser cors --save
+```
+
+를 수행하여 express, body-parser, cors 를 설치해준다. 
+
+### 간단한 유저 서비스 api 만들기 
+
+node_server/server.js 를 만들어준다.  그리고 다음 내용을 추가한다. 
+
+```
+const express = require('express');
+const cors = require('cors');
+const bodyParser = require('body-parser');
+
+const app = express();
+app.use(bodyParser.urlencoded({extended: false}))
+app.use(bodyParser.json())
+app.use(cors());
+
+app.get('/api/users', (req, res, next) => {
+    userList = [
+        {
+            "id":1,
+            "name":"kido",
+            "email":"kido@kido.com"
+        },
+        {
+            "id":2,
+            "name":"skt",
+            "email":"skt@skt.com"
+        },
+        {
+            "id":3,
+            "name":"skb",
+            "email":"skb@skb.com"
+        },
+        {
+            "id":4,
+            "name":"IronMan",
+            "email":"ironMan@marvel.com"
+        },
+    ]
+
+    res.send(userList);
+});
+
+
+const port = process.env.NODE_ENV === 'production' ? 80 : 9000
+
+const server = app.listen(port, function() {
+    console.log('Server listening on port ' + port)
+})
+```
+
+보는바와 같이 매우 간단한 코드이다. 
+
+```
+curl http://localhost:9000/api/users
+```
+
+결과는 다음과 같아 나타난다. 
+
+```
+[  
+   {  
+      "id":1,
+      "name":"kido",
+      "email":"kido@kido.com"
+   },
+   {  
+      "id":2,
+      "name":"skt",
+      "email":"skt@skt.com"
+   },
+   {  
+      "id":3,
+      "name":"skb",
+      "email":"skb@skb.com"
+   },
+   {  
+      "id":4,
+      "name":"IronMan",
+      "email":"ironMan@marvel.com"
+   }
+]
+```
+
+이제 서버는 준비 되었다. 
+
+클라이언트에서 axios 를 사용해보자. 
+
+### 사용자 리스트 컴포넌트 생성하기. 
+
+pages/userList.js 파일을 만들고 컴포넌트를 하나 생성한다. 
+
+```
+import React from 'react';
+import axios from 'axios';
+
+export default class UserList extends React.Component {
+
+    state = {
+        users: []
+    };
+
+    componentDidMount() {
+        axios.get('http://localhost:9000/api/users')
+            .then((res) => {
+                console.log(res);
+                this.setState({users: res.data})
+            })
+            .catch((err) => console.log(err));
+    }   
+
+    render() {
+        return (
+            <div>
+                <ul>
+                    {this.state.users.map(user => <li>{user.name}</li>)}
+                </ul>
+            </div>
+        )
+    }
+}
+```
+
+### 컴포넌트 사용하기. 
+
+pages/index.js 파일을 다음과 같이 수정하고 데브 모드로 실행해보자. 
+
+```
+import Navigation from '../components/navigation';
+import UserList from './userList';
+
+export default() => (
+    <div>
+        <Navigation/>
+        <h1>Hello React Next</h1>
+        <UserList />
+    </div>
+
+)
+```
+
+결과를 살펴보면 사용자 목록을 리스트로 나열된 것을 확인할 수 있을 것이다. 
+
+--------------
+
+
 ## Chapter 04. add Style sheet with JSX
 
 next 에서는 JSX 로 스타일 시트도 함께 컴파일 되도록 지원을 해주고 있습니다. 
