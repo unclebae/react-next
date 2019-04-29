@@ -2,7 +2,7 @@
 
 ## Chapter 06. using axios post and delete
 
-이번에는 axios POST 와 DELETE 를 수행해볼 차례이다. 
+이번에는 axios POST를 수행해볼 차례이다. 
 
 ### 서버 변경하기. 
 
